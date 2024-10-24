@@ -1,0 +1,40 @@
+﻿@model List<LectorJson.Models.Post>
+
+@{
+    ViewData["Title"] = "Posts de JSONPlaceholder";
+}
+
+<h2>Posts de JSONPlaceholder</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Guide</th>
+            <th>User ID</th>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Body</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            foreach (var post in Model)
+            {
+                <tr>
+                    <td>@post.Guide</td>
+                    <td>@post.UserId</td>
+                    <td>@post.Id</td>
+                    <td>@post.Title</td>
+                    <td>@post.Body</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="5" class="text-center">No hay posts disponibles.</td>
+            </tr>
+        }
+    </tbody>
+</table>
